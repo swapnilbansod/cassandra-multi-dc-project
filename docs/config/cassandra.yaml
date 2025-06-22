@@ -1,0 +1,13 @@
+cluster_name: '<your_cluster_name>'
+num_tokens: 256
+listen_address: <PRIVATE_IP>
+rpc_address: 0.0.0.0
+endpoint_snitch: GossipingPropertyFileSnitch
+
+seed_provider:
+  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+    parameters:
+        - seeds: "10.0.1.11,10.0.2.21"  # DC1 and DC2 seeds
+
+commitlog_sync: periodic
+commitlog_sync_period_in_ms: 10000
